@@ -1,0 +1,91 @@
+
+
+
+Topic: homeassistant/sensor/HA/ShuiChan-WaterTemp/config
+{
+    "unique_id": "ShuiChan-WaterTemp",
+    "name": "WaterTemp",
+    "icon": "mdi:water-thermometer",
+    "device_class":"temperature",
+    "state_topic": "ShuiChan/WaterTemp/state",
+    "json_attributes_topic": "ShuiChan/WaterTemp/attributes",
+    "unit_of_measurement": "℃",
+    "device": {
+        "identifiers": "ESP8266",
+        "manufacturer": "M@X",
+        "model": "HA",
+        "name": "ESP8266",
+        "sw_version": "1.0"
+    }
+}
+
+Topic: homeassistant/sensor/HA/ShuiChan-WaterDepth/config
+{
+    "unique_id": "ShuiChan-WaterDepth",
+    "name": "WaterDepth",
+    "icon": "mdi:waves",
+    "state_topic": "ShuiChan/WaterDepth/state",
+    "json_attributes_topic": "ShuiChan/WaterDepth/attributes",
+    "device_class":"distance",
+    "unit_of_measurement": "M",
+    "device": {
+        "identifiers": "ESP8266",
+        "manufacturer": "M@X",
+        "model": "HA",
+        "name": "ESP8266",
+        "sw_version": "1.0"
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+//////////////////////////////////////////            micropython注册
+
+homeassistant_device_name = “ESP8266”#设备的名称
+homeassistant_device_sensor_order = “5”#设备的序号
+homeassistant_device_entity_name= “water temperature”#设备的实体名称
+
+homeassistant_state_topic = “HA-%s/%s/state” % (homeassistant_device_name, homeassistant_device_sensor_order)
+homeassistant_config_topic = “homeassistant/sensor/HA/HA-%s-%s/config” % (homeassistant_device_name, homeassistant_device_sensor_order)
+
+
+homeassistant_config_content = {
+“unique_id”: “HA-%s-%s” % (homeassistant_device_name, homeassistant_device_sensor_order),
+“name”: homeassistant_device_entity_name,
+“icon”: “mdi:thermometer”,
+“state_topic”: “HA-%s/%s/state” % (homeassistant_device_name, homeassistant_device_sensor_order),
+“json_attributes_topic”: “HA-%s-%s/attributes” % (homeassistant_device_name, homeassistant_device_sensor_order),
+#“unit_of_measurement”: “℃”,
+“device”: {
+“identifiers”: homeassistant_device_name,
+“manufacturer”: “M@X”,
+“model”: “HA”,
+“name”: homeassistant_device_name,
+“sw_version”: “1.0”
+}
+}
+
+# 创建设备实体
+# send_content = ujson.dumps(homeassistant_config_content)
+# c.publish(homeassistant_config_topic, send_content) # 发布消息
+*/
+
+
